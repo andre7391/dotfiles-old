@@ -2,7 +2,7 @@
 set $mod Mod4
 
 # font
-font pango:Iosevka Nerd Font, 8
+font pango:Droid Sans Mono, 8
 
 # floating window position
 floating_modifier $mod
@@ -15,6 +15,13 @@ bindsym $mod+Shift+q kill
 
 # program launcher
 bindcode $mod+40 exec "rofi -no-lazy-grab -show drun -modi run,drun,window"
+
+# volume
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # change focus
 bindsym $mod+Left focus left
@@ -120,7 +127,9 @@ mode "[l]ogout, [r]eboot, [s]hutdown, loc[k]" {
 }
 bindsym $mod+x mode "[l]ogout, [r]eboot, [s]hutdown, loc[k]"
 
-# custom apps
+# apps
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec_always --no-startup-id killall -q polybar; polybar main
 exec --no-startup-id feh --bg-fill /usr/share/pixmaps/wallpaper.png
 exec --no-startup-id picom

@@ -1,9 +1,9 @@
 
 # configure git
-    git clone --bare git@github.com:andre7391/dotfiles.git ~/.dotfiles
-    alias dotfiles='/usr/bin/git --git-dir=~/.dotfiles/ --work-tree=~'
-    dotfiles config status.showUntrackedFiles no
-    dotfiles checkout
+#    git clone --bare git@github.com:andre7391/dotfiles.git $HOME/.dotfiles
+#    alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+#    dotfiles config status.showUntrackedFiles no
+#    dotfiles checkout
 
 # install packages
     # basic
@@ -16,10 +16,10 @@
     ## generate ssh key
     #ssh-keygen -t ed25519 -C "andre7391@gmail.com"
     #eval "$(ssh-agent -s)"
-    #ssh-add ~/.ssh/id_ed25519
+    #ssh-add $HOME/.ssh/id_ed25519
 
     ## recover ssh key for git
-    #cat ~/.ssh/id_ed25519.pub
+    #cat $HOME/.ssh/id_ed25519.pub
 
 # dracula theme
     mkdir /tmp/dracula
@@ -41,22 +41,26 @@
     sudo cp -R /usr/share/themes/Dracula/kde/cursors/Dracula-cursors/ /usr/share/icons/Dracula-Cursors
 
     # wallpaper
-    sudo cp ~/.wallpapers/sunset_1920x1080.png /usr/share/pixmaps/wallpaper.png
+    sudo cp $HOME/.wallpapers/sunset_1920x1080.png /usr/share/pixmaps/wallpaper.png
     sudo chown -R root:root /usr/share/pixmaps/wallpaper.png
 
 # system files
     # lightdm
-    sudo cp ~/.system/lightdm/lightdm.conf /etc/lightdm/
-    sudo cp ~/.system/lightdm/slick-greeter.conf /etc/lightdm/
+    sudo cp $HOME/.system/lightdm/lightdm.conf /etc/lightdm/
+    sudo cp $HOME/.system/lightdm/slick-greeter.conf /etc/lightdm/
     sudo chown -R root:root /usr/share/icons/Dracula
 
-    sudo cp ~/.system/lightdm/index.theme /usr/share/icons/default/index.theme
+    sudo cp $HOME/.system/lightdm/index.theme /usr/share/icons/default/index.theme
     sudo chown -R root:root /usr/share/icons/default/index.theme
 
     # enviroment
-    sudo cp ~/.system/etc/enviroment /etc/enviroment
-    sudo chown -R root:root /etc/enviroment
+    sudo cp $HOME/.system/etc/environment /etc/environment
+    sudo chown -R root:root /etc/environment
 
+    # fonts
+    sudo cp $HOME/.system/fonts/feather.ttf /usr/share/fonts/
+    sudo chown -R root:root /usr/share/fonts/feather.ttf
+    fc-cache -f -v
 
 # correct dual boot time
     timedatectl set-local-rtc 1
