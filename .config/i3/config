@@ -122,7 +122,7 @@ bindsym $mod+x mode "[l]ogout, [r]eboot, [s]hutdown, loc[k]"
 
 # custom apps
 exec_always --no-startup-id killall -q polybar; polybar main
-exec --no-startup-id feh --bg-fill ~/dotfiles/wallpapers/current_blue.png
+exec --no-startup-id feh --bg-fill /usr/share/pixmaps/wallpaper.png
 exec --no-startup-id picom
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 
