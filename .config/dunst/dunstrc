@@ -59,7 +59,7 @@ frame_color = "#6272A4"
 corner_radius = 0
 
 # font
-font = Monospace 10
+font = Open Sans 9
 line_height = 0
 
 # actions
