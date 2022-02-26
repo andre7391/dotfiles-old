@@ -1,9 +1,9 @@
 
 # configure git
-#    git clone --bare git@github.com:andre7391/dotfiles.git $HOME/.dotfiles
-#    alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-#    dotfiles config status.showUntrackedFiles no
-#    dotfiles checkout
+    git clone --bare git@github.com:andre7391/dotfiles.git $HOME/.dotfiles
+    alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+    dotfiles config status.showUntrackedFiles no
+    dotfiles checkout
 
 # install packages
     # basic
