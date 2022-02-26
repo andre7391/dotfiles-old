@@ -14,12 +14,12 @@
 
 # configure git authetication
     ## generate ssh key
-    #ssh-keygen -t ed25519 -C "andre7391@gmail.com"
-    #eval "$(ssh-agent -s)"
-    #ssh-add $HOME/.ssh/id_ed25519
+    ssh-keygen -t ed25519 -C "andre7391@gmail.com"
+    eval "$(ssh-agent -s)"
+    ssh-add $HOME/.ssh/id_ed25519
 
     ## recover ssh key for git
-    #cat $HOME/.ssh/id_ed25519.pub
+    cat $HOME/.ssh/id_ed25519.pub
 
 # dracula theme
     mkdir /tmp/dracula
