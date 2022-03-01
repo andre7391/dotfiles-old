@@ -117,7 +117,7 @@ mode "[l]ogout, [r]eboot, [s]hutdown, loc[k]" {
         # exit keys bindings
         bindsym l exec i3-msg exit
         bindsym r exec systemctl reboot
-        bindsym s exec systemctl shutdown
+        bindsym s exec shutdown -h 0
         bindsym k exec i3lock; mode "default"
 
         # back to normal

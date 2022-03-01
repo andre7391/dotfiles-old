@@ -1,5 +1,5 @@
 configuration {
-	font:							"Open Sans 9";
+	font:							"Droid Sans 9";
     show-icons:                     true;
     display-drun: 					"";
     drun-display-format:            "{name}";
@@ -33,7 +33,7 @@ prompt {
 	padding: 						0.30% 1% 0% -0.5%;
 	background-color: 				@al;
 	text-color: 					@fg;
-	font:							"Open Sans 9";
+	font:							"Droid Sans 9";
 }
 
 entry {

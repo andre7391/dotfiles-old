@@ -1,10 +1,10 @@
 
 # git clone
-    git clone --bare https://github.com/andre7391/dotfiles.git $HOME/.dotfiles
-    alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-    dotfiles config status.showUntrackedFiles no
-    dotfiles checkout
-    read -n 1 -p "press any key to continue!"
+#    git clone --bare https://github.com/andre7391/dotfiles.git $HOME/.dotfiles
+#    alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+#    dotfiles config status.showUntrackedFiles no
+#    dotfiles checkout
+#    read -n 1 -p "press any key to continue!"
 
     # change repository to ssh 
     # url = git@github.com:andre7391/dotfiles.git
@@ -12,18 +12,18 @@
 
 # install
     # packages
-    yay -S vim kitty i3-gaps i3lock rofi polybar feh picom dunst xss-lock dex lightdm lightdm-slick-greeter numlockx ttf-iosevka-nerd nemo mesa
+    yay -S --needed unzip wget vim kitty i3-gaps i3lock rofi polybar feh picom dunst xss-lock dex lightdm lightdm-slick-greeter numlockx nemo neofetch
     read -n 1 -p "press any key to continue!"
 
     # programs
-    yay -S google-chrome visual-studio-code-bin
+    yay -S --needed google-chrome visual-studio-code-bin
     read -n 1 -p "press any key to continue!"
 
 # ssh key
-    ## generate ssh key
-    ssh-keygen -t ed25519 -C "andre7391@gmail.com"
-    eval "$(ssh-agent -s)"
-    ssh-add $HOME/.ssh/id_ed25519
+#    ## generate ssh key
+#    ssh-keygen -t ed25519 -C "andre7391@gmail.com"
+#    eval "$(ssh-agent -s)"
+#    ssh-add $HOME/.ssh/id_ed25519
 
     ## recover ssh key for git
     cat $HOME/.ssh/id_ed25519.pub
@@ -65,15 +65,24 @@
     sudo chown -R root:root /usr/share/icons/default/index.theme
     read -n 1 -p "press any key to continue!"
 
+    # fonts
+    yay -S --needed ttf-droid
+    sudo cp $HOME/.system/fonts/feather.ttf /usr/share/fonts/
+    sudo chown -R root:root /usr/share/fonts/feather.ttf
+    fc-cache -f -v
+    read -n 1 -p "press any key to continue!"
+
     # enviroment
+    sudo cp /etc/environment $HOME/.system/etc/environment.backup
     sudo cp $HOME/.system/etc/environment /etc/environment
     sudo chown -R root:root /etc/environment
     read -n 1 -p "press any key to continue!"
 
-    # fonts
-    sudo cp $HOME/.system/fonts/feather.ttf /usr/share/fonts/
-    sudo chown -R root:root /usr/share/fonts/feather.ttf
-    fc-cache -f -v
+    # keyboard
+    sudo cp /usr/share/X11/locale/en_US.UTF-8/Compose $HOME/.system/keyboard/Compose.backup
+    sudo cp $HOME/.system/keyboard/Compose /usr/share/X11/locale/en_US.UTF-8/Compose
+    sudo cp /etc/X11/xorg.conf.d/00-keyboard.conf $HOME/.system/keyboard/00-keyboard.conf.backup
+    sudo cp $HOME/.system/keyboard/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
     read -n 1 -p "press any key to continue!"
 
 # correct dual boot time
