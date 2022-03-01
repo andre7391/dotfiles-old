@@ -1,10 +1,10 @@
 
 # git clone
-#    git clone --bare https://github.com/andre7391/dotfiles.git $HOME/.dotfiles
-#    alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-#    dotfiles config status.showUntrackedFiles no
-#    dotfiles checkout
-#    read -n 1 -p "press any key to continue!"
+    # git clone --bare https://github.com/andre7391/dotfiles.git $HOME/.dotfiles
+    # alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+    # dotfiles config status.showUntrackedFiles no
+    # dotfiles checkout
+    # read -n 1 -p "press any key to continue!"
 
     # change repository to ssh 
     # url = git@github.com:andre7391/dotfiles.git
@@ -20,10 +20,10 @@
     read -n 1 -p "press any key to continue!"
 
 # ssh key
-#    ## generate ssh key
-#    ssh-keygen -t ed25519 -C "andre7391@gmail.com"
-#    eval "$(ssh-agent -s)"
-#    ssh-add $HOME/.ssh/id_ed25519
+## generate ssh key
+    # ssh-keygen -t ed25519 -C "andre7391@gmail.com"
+    # eval "$(ssh-agent -s)"
+    # ssh-add $HOME/.ssh/id_ed25519
 
     ## recover ssh key for git
     cat $HOME/.ssh/id_ed25519.pub
