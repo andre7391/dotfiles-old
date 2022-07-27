@@ -11,13 +11,25 @@
 	# fetch = +refs/heads/*:refs/remotes/origin/*
 
 # install
+    # yay
+    pacman -S --needed git base-devel
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    
     # packages
-    yay -S --needed unzip wget vim kitty i3-gaps i3lock rofi polybar feh picom dunst xss-lock dex lightdm lightdm-slick-greeter numlockx nemo neofetch
+    yay -S --needed unzip wget vim kitty i3-gaps i3lock rofi polybar feh picom dunst xss-lock dex lightdm lightdm-slick-greeter numlockx nemo neofetch lxsession-gtk3
+    gsettings set org.cinnamon.desktop.default-applications.terminal exec kitty
     read -n 1 -p "press any key to continue!"
 
     # programs
     yay -S --needed google-chrome visual-studio-code-bin
     read -n 1 -p "press any key to continue!"
+
+    # vm
+    yay -S --needed virt-manager qemu-desktop libvirt edk2-ovmf dnsmasq
+    sudo virsh net-autostart --network default
+
 
 # ssh key
 ## generate ssh key
@@ -85,9 +97,19 @@
     sudo cp $HOME/.system/keyboard/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
     read -n 1 -p "press any key to continue!"
 
-# correct dual boot time
-    timedatectl set-local-rtc 1
+# dual boot
+    # time configuration
+    sudo timedatectl set-local-rtc 1
+    sudo timedatectl set-timezone America/Campo_Grande
+    
+    # grub
+    yay -S --needed os-prober
+    sudo mkdir /mnt/efi-windows
+    sudo mount /dev/nvme0n1p1 /mnt/efi-windows
+    sudo vim /etc/default/grub
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
     read -n 1 -p "press any key to continue!"
+
 
 # enable ligthdm
     sudo systemctl enable lightdm
