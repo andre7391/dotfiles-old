@@ -16,13 +16,6 @@ bindsym $mod+Shift+q kill
 # program launcher
 bindcode $mod+40 exec "rofi -no-lazy-grab -show drun -modi run,drun,window"
 
-# volume
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
-
 # change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -43,6 +36,9 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+
+# default layout
+workspace_layout tabbed
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
