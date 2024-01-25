@@ -1,0 +1,14 @@
+# function to help symlinking files
+function symlink() {
+    if [ -f $2 ] || [ -d $2 ] && ! [ -L $2 ]; then
+        mv $2 "$1-backup"
+    fi
+    if ! [ -e $2 ]; then
+        mkdir -p $2
+    fi
+    rm -r $2
+    ln -s $(realpath -s $1) $2
+}
+
+# i3
+symlink i3/config ~/.config/i3/test/212321/config
